@@ -8,6 +8,7 @@ const AppRoutes : Routes = [
   {path: 'contact',component: ContactComponent},
   {path: 'home', component: HomeComponent},
   {path: 'work', component: WorkComponent},
+  {path: 'work', component: WorkComponent}
   
 ] 
 
