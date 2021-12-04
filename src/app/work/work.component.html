@@ -1,12 +1,8 @@
 <p>work works!</p>
 <div class="container">
     <div class="row">
-      <div class="col-md-12 mt-4">
-  
-  
-        <button class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" (click)="showAddUserForm()">Add New User</button>
-  
-        
+
+      <div class="col-md-12 mt-4"> <button class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" (click)="showAddUserForm()">Add New User</button>
   
         <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
           <div class="offcanvas-header">
@@ -17,7 +13,7 @@
             <button class="btn btn-success"  (click)="showAddUserForm()">Add New User</button>
             <div>
               <div class="mt-4">
-                <form *ngIf="userForm">
+                <form *ngIf="userForm" >
                   <h2>Add New User</h2>
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>First Name</mat-label>
@@ -27,32 +23,53 @@
                     <mat-label>Last Name</mat-label>
                     <input matInput placeholder="Ex. patil" name="lastName" [(ngModel)]="newUser.lastName">
                   </mat-form-field>
+
+
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Email</mat-label>
-                    <input matInput placeholder="Ex. abc@gmail.com" name="email" [(ngModel)]="newUser.email">
+                    <input matInput placeholder="Ex. abc@gmail.com" type="email" ngModel [email]="true" name="email" [(ngModel)]="newUser.email">
                   </mat-form-field>
+
+
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>password</mat-label>
                     <input matInput placeholder="Ex. $^abc@424" name="password" [(ngModel)]="newUser.password">
                   </mat-form-field>
-                 
-                  <p>
+                  <label for="">Gender</label>
+                  <div class="control-form">
+                    <label class="radio-inline">
+                      <input type="radio" value="male" name="gender" [(ngModel)]="newUser.gender">
+                      Male
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" value="female" name="gender"  [(ngModel)]="newUser.gender">
+                      Female
+                    </label>
+                     </div>
+                 <!-- <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                 </mat-radio-group>-->
+                   <p>
                     <button type="button" class="btn btn-primary mr-2" (click)="saveUser(newUser)">Submit</button>
                     <button type="button" class="btn btn-warning" (click)="cancelNewUser()">Cancel</button>
                   </p>
                 </form>
         
+
+
+
                 <form *ngIf="editUserForm">
                   <h2>Edit User Details</h2>
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>First Name</mat-label>
-                    <input matInput placeholder="Ex. Karan" name="firstName" [(ngModel)]="editedUser.firstName">
+                    <input matInput placeholder="Ex. Karan" name="firstName" [(ngModel)]="editedUser.firstName" >
                   </mat-form-field>
                   <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>Last Name</mat-label>
                     <input matInput placeholder="Ex. patil" name="lastName" [(ngModel)]="editedUser.lastName">
                   </mat-form-field>
-                  <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-form-field for="inputPassword" class="example-full-width" appearance="fill">
                     <mat-label>Email</mat-label>
                     <input matInput placeholder="Ex. abc@gmail.com" name="email" [(ngModel)]="editedUser.email">
                   </mat-form-field>
@@ -60,6 +77,22 @@
                     <mat-label>password</mat-label>
                     <input matInput placeholder="Ex. $^abc@424" name="password" [(ngModel)]="editedUser.password">
                   </mat-form-field>
+                  <label for="">Gender</label>
+                  <div class="control-form">
+                    <label class="radio-inline">
+                      <input type="radio" value="male" name="gender" [(ngModel)]="editedUser.gender">
+                      Male
+                    </label>
+                    <label class="radio-inline">
+                      <input type="radio" value="female" name="gender"  [(ngModel)]="editedUser.gender">
+                      Female
+                    </label>
+                     </div>
+                  
+                 <!-- <mat-radio-group aria-label="Select an option">
+                    <mat-radio-button value="1">Option 1</mat-radio-button>
+                    <mat-radio-button value="2">Option 2</mat-radio-button>
+                  </mat-radio-group>-->
                   <p>
                     <button type="button" class="btn btn-primary mr-2" (click)="updateUser()">Update</button>
                     <button type="button" class="btn btn-warning" (click)="cancelEdits()">Cancel</button>
@@ -85,6 +118,7 @@
               <th class="text-center">Last Name</th>
               <th class="text-center">Email</th>
               <th class="text-center">Password</th>
+              <th class="text-center">Gender</th>
               <th class="text-center">&nbsp;</th>
             </tr>
           </thead>
@@ -95,48 +129,22 @@
               <td>{{ user.lastName }}</td>
               <td>{{ user.email }}</td>
               <td>{{ user.password }}</td>
+              <td>{{user.gender}}</td>
+              
   
               <td>
                 <button type="button" class="btn btn-info btn-sm mr-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample" (click)="showEditUserForm(user)">Edit</button>
   
-                <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-danger btn-sm"  >Delete</button>
+                <button type="button"  (click)="openDialog(user.id)" >Delete</button><!--(click) = "deleteRow(i)"-->
               </td>
             </tr>
           </tbody>
         </table>
-  
-  
-        <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Alert!!!!!!</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body" *ngFor="let user of users">
-          <h1>Are You Sure???? <samp>{{ user.firstName }}</samp></h1>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button"  class="btn btn-primary"  >Delete</button> <!--(click)="removeUser(user)"-->
-        </div>
       </div>
     </div>
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-        
-      </div>
-    </div>
-  </div>
+
+ 
   
   
   

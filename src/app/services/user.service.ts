@@ -5,6 +5,9 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
+  deleteUser(id: any) {
+      throw new Error('Method not implemented.');
+  }
 
   private upersons: User[] = [
     {
@@ -12,14 +15,64 @@ export class UserService {
       firstName: 'abc',
       lastName: 'ef',
       email: 'admin@12.com',
-      password: 'ymtyuhut'
+      password: 'ymtyuhut',
+      gender:'male'
     },
     {
       id: 2,
       firstName: 'xyz',
       lastName: 'car',
       email: 'admin@12.com',
-      password: 'adyktkytmin'
+      password: 'adyktkytmin',
+      gender:'female'
+    },
+    {
+      id: 3,
+      firstName: 'abc',
+      lastName: 'ef',
+      email: 'admin@12.com',
+      password: 'ymtyuhut',
+      gender:'male'
+    },
+    {
+      id: 4,
+      firstName: 'xyz',
+      lastName: 'car',
+      email: 'admin@12.com',
+      password: 'adyktkytmin',
+      gender:'female'
+    },
+    {
+      id: 5,
+      firstName: 'abc',
+      lastName: 'ef',
+      email: 'admin@12.com',
+      password: 'ymtyuhut',
+      gender:'male'
+    },
+    {
+      id: 6,
+      firstName: 'xyz',
+      lastName: 'car',
+      email: 'admin@12.com',
+      password: 'adyktkytmin',
+      gender:'female'
+    },
+    {
+      id: 7,
+      firstName: 'abc',
+      lastName: 'ef',
+      email: 'admin@12.com',
+      password: 'ymtyuhut',
+      gender:'male'
+    },
+    {
+      id: 8,
+      firstName: 'xyz',
+      lastName: 'car',
+      email: 'admin@12.com',
+      password: 'adyktkytmin',
+      gender:'female'
     }
   ];
 
@@ -38,8 +91,6 @@ export class UserService {
     const index = this.upersons.findIndex(u => user.id === u.id);
     this.upersons[index] = user;
   }
-  deleteUser(user: User) {
-    this.upersons.splice(this.upersons.indexOf(user), 1);
-  }
+  
 
 }

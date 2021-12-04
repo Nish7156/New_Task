@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
+import { PopComponent } from './pop.component';
+
 
 @Component({
   selector: 'app-work',
@@ -14,12 +17,21 @@ export class WorkComponent implements OnInit {
   newUser: any = {};
   editUserForm: boolean;
   editedUser: any = {};
+  gender:[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, public dialog: MatDialog) { }
+
+  openDialog(user){
+    this.dialog.open(PopComponent,{data:user});
+  }
 
   ngOnInit() {
+
     this.users = this.getUsers();
+    // console.log(this.users);
+    // this.users.splice(5,1);
   }
+  
 
   getUsers(): User[] {
     return this.userService.getUsersFromData();
@@ -58,9 +70,7 @@ export class WorkComponent implements OnInit {
     this.editedUser = {};
   }
 
-  removeUser(user: User) {
-    this.userService.deleteUser(user);
-  }
+  
 
   cancelEdits() {
     this.editedUser = {};
@@ -72,8 +82,13 @@ export class WorkComponent implements OnInit {
     this.userForm = false;
   }
 
-  
-
-  
-
+  deleteRow(x){
+    console.log(x);
+    this.users.forEach((user,index)=>{
+      if(user.id==x){
+        this.users.splice(index,1);
+      }
+    });
+  }
 }
+

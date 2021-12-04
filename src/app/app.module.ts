@@ -9,6 +9,12 @@ import { AppRoutingModule } from './app-routing.module';
 import {ContactComponent} from '../app/contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { WorkComponent } from './work/work.component';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
+import { PopComponent } from './work/pop.component';
+
 
 @NgModule({
   declarations: [
@@ -16,14 +22,22 @@ import { WorkComponent } from './work/work.component';
     HeaderComponent,
     ContactComponent,
     HomeComponent,
-    WorkComponent
+    WorkComponent,
+
+    PopComponent
+
+
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatRadioModule,
+    MatDialogModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
