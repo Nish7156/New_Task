@@ -87,6 +87,7 @@ export class WorkComponent implements OnInit {
     this.users.forEach((user,index)=>{
       if(user.id==x){
         this.users.splice(index,1);
+        console.log(this.users);
       }
     });
   }

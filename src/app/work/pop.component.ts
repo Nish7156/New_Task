@@ -22,6 +22,12 @@ user:any;
     deleteRow(user){
         console.log("deleteRow",user);
     }
+
+
+
+    close() {
+      this.dialog.closeAll();
+  }
     
 
 }
