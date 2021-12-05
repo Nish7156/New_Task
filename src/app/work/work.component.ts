@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { PopComponent } from './pop.component';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -19,17 +20,21 @@ export class WorkComponent implements OnInit {
   editedUser: any = {};
   gender:[];
 
-  constructor(private userService: UserService, public dialog: MatDialog) { }
+  constructor(private userService: UserService, public dialog: MatDialog) { 
+    this.users = this.getUsers();
 
-  openDialog(user){
-    this.dialog.open(PopComponent,{data:user});
+  }
+
+  openDialog(id){
+    const dialogRef =  this.dialog.open(PopComponent,{data:id});
+    
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      this.deleteRow(result.data);
+    });
   }
 
   ngOnInit() {
-
-    this.users = this.getUsers();
-    // console.log(this.users);
-    // this.users.splice(5,1);
   }
   
 
@@ -53,7 +58,6 @@ export class WorkComponent implements OnInit {
     }
     this.userForm = true;
     this.isNewUser = true;
-
   }
 
   saveUser(user: User) {

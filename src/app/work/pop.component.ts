@@ -12,22 +12,23 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class PopComponent implements OnInit {
   
-user:any;
-  constructor(private userService: UserService, public dialog: MatDialog, @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
-    this.user = data;
+id:any;
+  constructor(private userService: UserService , public dialog: MatDialog,public dialogRef: MatDialogRef<PopComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
+    this.id = data;
   }
     ngOnInit(): void {
-        throw new Error('Method not implemented.');
-    }
-    deleteRow(user){
-        console.log("deleteRow",user);
+       
     }
 
 
+
+    deleteRow(id){
+        this.dialogRef.close({event: 'close', data: this.id});
+    }
 
     close() {
       this.dialog.closeAll();
   }
+ 
     
-
 }
