@@ -64,6 +64,7 @@ export class WorkComponent implements OnInit {
     if (this.isNewUser) {
       // add a new user
       this.userService.addUser(user);
+      console.log(this.isNewUser);
     }
     this.userForm = false;
   }

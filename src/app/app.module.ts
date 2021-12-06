@@ -14,6 +14,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
 import { PopComponent } from './work/pop.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -23,8 +24,7 @@ import { PopComponent } from './work/pop.component';
     ContactComponent,
     HomeComponent,
     WorkComponent,
-
-    PopComponent
+     PopComponent
 
 
   ],
@@ -37,7 +37,8 @@ import { PopComponent } from './work/pop.component';
     MatRadioModule,
     MatDialogModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
