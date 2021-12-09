@@ -49,30 +49,6 @@ export class UserService {
       email: 'admin@12.com',
       password: 'ymtyuhut',
       gender:'male'
-    },
-    {
-      id: 6,
-      firstName: 'xyz',
-      lastName: 'car',
-      email: 'admin@12.com',
-      password: 'adyktkytmin',
-      gender:'female'
-    },
-    {
-      id: 7,
-      firstName: 'abc',
-      lastName: 'ef',
-      email: 'admin@12.com',
-      password: 'ymtyuhut',
-      gender:'male'
-    },
-    {
-      id: 8,
-      firstName: 'xyz',
-      lastName: 'car',
-      email: 'admin@12.com',
-      password: 'adyktkytmin',
-      gender:'female'
     }
   ];
 

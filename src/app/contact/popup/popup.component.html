@@ -1,14 +1,14 @@
+<p>popup works!</p>
 
 <div id="pop-up" class="container" >
     <div class="row">
         <div class="col-50" >
-            <h1>Are You Sure!!!!!</h1>
-            <h3> <h1>{{user.firstName}}</h1></h3>
+            <h1>Are You Sure!!!!! <span>{{ m.firstName}}</span></h1>
         </div>
         <div  class="col-50">
             <button mat-raised-button color="primary" (click)="close()">No</button>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button  mat-raised-button color="warn" (click)="deleteRow(user.id)">Yes</button>
+            <button  mat-raised-button color="warn" (click)="deleteRow(m.id)">Yes</button>
            
         </div>
         

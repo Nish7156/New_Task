@@ -4,6 +4,7 @@ import { User } from '../models/user';
 import { UserService } from '../services/user.service';
 import { PopComponent } from './pop.component';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -19,18 +20,29 @@ export class WorkComponent implements OnInit {
   editUserForm: boolean;
   editedUser: any = {};
   gender:[];
+  hide = true;
 
   constructor(private userService: UserService, public dialog: MatDialog) { 
     this.users = this.getUsers();
 
   }
 
+
+
+
+
+
+  
+
   openDialog(id){
     const dialogRef =  this.dialog.open(PopComponent,{data:id});
     
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed', result);
-      this.deleteRow(result.data);
+      if(result){
+        this.deleteRow(result.data);
+      }
+      
     });
   }
 
@@ -96,5 +108,7 @@ export class WorkComponent implements OnInit {
       }
     });
   }
+
+  
 }
 

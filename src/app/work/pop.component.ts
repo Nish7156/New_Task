@@ -11,10 +11,15 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./pop.component.scss']
 })
 export class PopComponent implements OnInit {
-  
+ 
+
 id:any;
+  firstName: any;
+  user: any;
   constructor(private userService: UserService , public dialog: MatDialog,public dialogRef: MatDialogRef<PopComponent>, @Optional() @Inject(MAT_DIALOG_DATA) public data: any) { 
-    this.id = data;
+    this.user = data;
+    this.id = data.id;
+    
   }
     ngOnInit(): void {
        
