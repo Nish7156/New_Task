@@ -20,7 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PopupComponent } from './contact/popup/popup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-
+import { HichartComponent } from './hichart/hichart.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { NotfoundComponent } from './notfound/notfound.component';
     WorkComponent,
      PopComponent,
      PopupComponent,
-     NotfoundComponent
+     NotfoundComponent,
+     HichartComponent
 
 
   ],
@@ -48,7 +50,9 @@ import { NotfoundComponent } from './notfound/notfound.component';
     MatTableModule,
     MatFormFieldModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ChartModule
+  
     
   ],
   providers: [],

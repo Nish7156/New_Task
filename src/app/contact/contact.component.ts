@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { PopupComponent } from './popup/popup.component';
 import {UserService} from '.././services/./user.service';
 
+
+
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
@@ -29,11 +31,24 @@ myData = [
   },
 ];
 
-showMe: boolean = false;
 
-toggleTag(){
-  this.showMe = !this.showMe;
-}
+showMe: boolean = false;
+edit : boolean = false;
+submit: boolean = true;
+  editUserForm: boolean;
+  newUser: {};
+
+  showAddUserForm() {
+    this.submit = true;
+    this.showMe = true;
+    this.edit=false;
+    
+  }
+
+  cancelNewUser() {
+    this.newUser = {};
+    this.showMe = false;
+  }
 
 
 
@@ -43,7 +58,7 @@ toggleTag(){
 
 
   FormData = new FormGroup({
-    firstName: new FormControl(''),
+    firstName: new FormControl('Nishant'),
     lastName: new FormControl(''),
     'email' : new FormControl(null, [Validators.required, Validators.email]),
     'phone' : new FormControl(
@@ -68,16 +83,17 @@ toggleTag(){
     this.myData.push(this.FormData.value);
     // TODO: Use EventEmitter with form value
     console.warn(this.FormData.value);
-    this.toggleTag();
+    
   }
  
 
 
 
   onEdit(obj,id) {
-    
+
+    this.submit = false;
+    this.edit=true;
     console.log(obj);
-    this.toggleTag();
     this.FormData.patchValue(obj);
     this.FormData.get('id').setValue(obj.id);
      
@@ -117,7 +133,6 @@ toggleTag(){
       }
     });
     this.FormData.reset();
-    this.toggleTag();
     
   }
 
@@ -139,4 +154,7 @@ toggleTag(){
   
   
 
+
+
+  
 }
