@@ -67,8 +67,9 @@
   
                 <div class="text-center text-md-left">
                   <button *ngIf="submit"   mat-raised-button color="primary"  (click)="onSubmit()">Submit</button>
+                  <button *ngIf="edit"  mat-raised-button color="primary"  (click)="onUpdate()">Update</button>
                   <button   mat-raised-button color="warn"  (click)="cancelNewUser()">Cancel</button>
-                    <button *ngIf="edit"  mat-raised-button color="primary"  (click)="onUpdate()">Update</button>
+                    
                    </div>
   
             </form>

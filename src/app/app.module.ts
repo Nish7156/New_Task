@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PopupComponent } from './contact/popup/popup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HichartComponent } from './hichart/hichart.component';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 
 @NgModule({
@@ -50,7 +51,9 @@ import { HichartComponent } from './hichart/hichart.component';
     MatTableModule,
     MatFormFieldModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HighchartsChartModule
+
   
   
     
