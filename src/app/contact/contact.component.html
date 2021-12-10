@@ -2,77 +2,82 @@
 <button  mat-raised-button color="primary" (click)="showAddUserForm()">add user</button>
 
 
-<div class="container">
-  <div class="d-flex justify-content-center">
-      
-    <!--Section: Contact v.2-->
-<section class="mb-4">
 
-  <!--Section heading-->
-  <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
-  <!--Section description-->
+
+
+
+
+
+
+
+
+
+
 <div class="row">
-
-      <!--Grid column-->
-      <div class="col-md-9 mb-md-0 mb-5">
-
-          <form [formGroup]="FormData" *ngIf="showMe" >
-
-              <!--Grid row-->
-              <div class="row">
-
-                  <!--Grid column-->
+  <div class="col ">
+  <div class="row">
+  
+        <!--Grid column-->
+        <div class="col-md-9 mb-md-0 mb-5">
+  
+            <form [formGroup]="FormData" *ngIf="showMe" >
+  
+                <!--Grid row-->
+                <div class="row">
+  
+                    <!--Grid column-->
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>First Name</mat-label>
+                      <input matInput placeholder="Ex. Karan" formControlName="firstName">
+                    </mat-form-field>
+                    <!--Grid column-->
+                     <!--Grid column-->
                   <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>First Name</mat-label>
-                    <input matInput placeholder="Ex. Karan" formControlName="firstName">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Ex. patil" formControlName="lastName">
                   </mat-form-field>
                   <!--Grid column-->
-                   <!--Grid column-->
+  
+                    <!--Grid column-->
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Email</mat-label>
+                      <input matInput placeholder="Ex. abc@gmail.com" type="email"  formControlName="email">
+                      <small *ngIf="email.invalid && email.touched" class="text-danger">Email is Required</small>
+                    </mat-form-field>
+                    <!--Grid column-->
+  
+                </div>
+                <!--Grid row-->
+  
+                <!--Grid row-->
                 <mat-form-field class="example-full-width" appearance="fill">
-                  <mat-label>Last Name</mat-label>
-                  <input matInput placeholder="Ex. patil" formControlName="lastName">
+                  <mat-label>Password</mat-label>
+                  <input matInput placeholder="Ex. Karan" formControlName="password">
                 </mat-form-field>
-                <!--Grid column-->
+                
+                
+                <!--Grid row-->
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Phone</mat-label>
+                  <input matInput placeholder="Ex. Karan" formControlName="phone">
+                  <small *ngIf="phone.invalid && phone.touched" class="text-danger">Phone no is Required(minimum length 10,numbers are only allowed)</small>
+                </mat-form-field>
+  
+                <br>
+  
+                <div class="text-center text-md-left">
+                  <button *ngIf="submit"   mat-raised-button color="primary"  (click)="onSubmit()">Submit</button>
+                  <button   mat-raised-button color="warn"  (click)="cancelNewUser()">Cancel</button>
+                    <button *ngIf="edit"  mat-raised-button color="primary"  (click)="onUpdate()">Update</button>
+                   </div>
+  
+            </form>
+        </div>>
+        </div>
 
-                  <!--Grid column-->
-                  <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>Email</mat-label>
-                    <input matInput placeholder="Ex. abc@gmail.com" type="email"  formControlName="email">
-                    <small *ngIf="email.invalid && email.touched" class="text-danger">Email is Required</small>
-                  </mat-form-field>
-                  <!--Grid column-->
-
-              </div>
-              <!--Grid row-->
-
-              <!--Grid row-->
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Password</mat-label>
-                <input matInput placeholder="Ex. Karan" formControlName="password">
-              </mat-form-field>
-              
-              
-              <!--Grid row-->
-              <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Phone</mat-label>
-                <input matInput placeholder="Ex. Karan" formControlName="phone">
-                <small *ngIf="phone.invalid && phone.touched" class="text-danger">Phone no is Required(minimum length 10,numbers are only allowed)</small>
-              </mat-form-field>
-
-              <br>
-
-              <div class="text-center text-md-left">
-                <button *ngIf="submit"   mat-raised-button color="primary"  (click)="onSubmit()">Submit</button>
-                <button   mat-raised-button color="warn"  (click)="cancelNewUser()">Cancel</button>
-                  <button *ngIf="edit"  mat-raised-button color="primary"  (click)="onUpdate()">Update</button>
-                 </div>
-
-          </form>
-      </div>>
-      </div>
-      <!--Grid column-->
-<br><br>
-
+  </div>
+  <div class="col">
+    
 <table class="table">
   <thead>
     <th>ID</th>
@@ -99,6 +104,23 @@
     </tr>
   </tbody>
 </table>
+  </div>
+  <div class="w-100"></div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+      <!--Grid column-->
+
+
 
 
 

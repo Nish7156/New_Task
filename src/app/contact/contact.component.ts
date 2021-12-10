@@ -92,6 +92,7 @@ submit: boolean = true;
   onEdit(obj,id) {
 
     this.submit = false;
+    this.showMe = true;
     this.edit=true;
     console.log(obj);
     this.FormData.patchValue(obj);
