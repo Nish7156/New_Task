@@ -22,6 +22,9 @@ import { PopupComponent } from './contact/popup/popup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HichartComponent } from './hichart/hichart.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { StudentComponent } from './student/student.component';
+
+
 
 
 @NgModule({
@@ -34,7 +37,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
      PopComponent,
      PopupComponent,
      NotfoundComponent,
-     HichartComponent
+     HichartComponent,
+     StudentComponent
 
 
   ],

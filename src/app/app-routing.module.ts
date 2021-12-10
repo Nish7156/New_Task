@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { WorkComponent } from './work/work.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { HichartComponent } from './hichart/hichart.component';
+import { StudentComponent } from './student/student.component';
 
 
 const AppRoutes : Routes = [
@@ -14,6 +15,7 @@ const AppRoutes : Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'work', component: WorkComponent},
   {path: 'hichart', component: HichartComponent},
+  {path: 'student', component: StudentComponent},
   {path: '404',component: NotfoundComponent},
 
 
